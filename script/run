@@ -1,0 +1,75 @@
+#! python
+# #! /usr/bin/python
+
+
+"""
+Client Side program for Controlling Rboto
+
+X - Exit program
+A - Test Communication  
+S - TTS engine input
+"""
+import subprocess as sb
+from colorama import init
+from termcolor import colored 
+from time import *
+
+print(colored("\t\t-- R-BOTO Console --",'green'))
+print()
+a = sb.run("date")
+print()
+# b = sb.check_output("ls")
+# print (a)
+# print (b)
+init()
+
+def camControl():
+    print(colored("Enter Command :",'green','on_grey'))
+    print("""
+    Use Arrow keys to Control Camera
+    Press 'C' to capture
+    Press 'V' to Record 
+    Press 'X' to Exit 
+
+    """)
+    while True:
+        key = input()
+        # print("\r")
+        key = str(key).lower()
+        if key == 'h':
+            print("\r<",end='')
+        if key == ';':
+            print("\r>",end='')
+        if key == 'x':
+            print("\rBack ..\n\n",end='')
+            # sleep(.3)
+            return
+
+# greet_msg1 = "espeak-ng hello"
+# greet_msg2 ="espeak-ng welcome to R-Boto Console"
+
+# sb.run("ls -l")
+sleep(1)
+# sb.check_output("espeak-ng welcome to R-Boto Console")
+while (1):
+
+        print(colored("Press Control Keys (h for help)",'cyan'))
+        a = str(input()).lower()
+        if  a == 'exit' or a == 'x':
+            exit()
+        elif a == 'speak' or a == 'a': 
+            c = sb.run("echo speak")        
+        elif a == 'clear' or a == 'l': 
+            c = sb.run("clear")        
+        elif a == 'help' or a == 'h':
+            print("""
+Client Side program for Controlling Rboto
+
+X (exit) - Exit program
+A (Test) - Test Communication  
+S (speak) - TTS engine input
+C (camera) - Camera Control
+              """)
+        elif a == 'camconrol' or a == 'c':
+            camControl()
+
