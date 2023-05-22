@@ -1,0 +1,4 @@
+pwm 3/3 
+pwm 3/1
+pwm 4/4
+green led gpio-14 ( board pin 8 )
